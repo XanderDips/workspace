@@ -1,0 +1,6 @@
+name: KitPvP
+author: littlexanman
+version: 2.5
+main: me.littlexanman.KitPvP.Core    
+description: A private plugin made by Xander Hughes! KitPvP 
+Commands:

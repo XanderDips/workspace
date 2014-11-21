@@ -1,0 +1,6 @@
+name: Particles
+author: littlexanman
+main: bukkit.littlexanman.Particles.Core
+version: 1.0
+description: Private Plugin
+Commands:

@@ -1,0 +1,9 @@
+name: ExplosiveArrows
+author: littlexanman
+version: 1.0
+main: me.littlexanman.ExplosiveArrows.Core
+description: A Plugin that creates an explosion after a shot arrow lands!
+commands:
+  explosivearrows:
+   usage: explosivearrows
+   description: Command to enable Explosive Arrows!

@@ -1,0 +1,6 @@
+name: FutureCraft
+author: littlexanman
+main: Bukkit.littlexanman.FutureCraft.Core
+version: 1.0
+description: FutureCraft Plugin!
+commands:
