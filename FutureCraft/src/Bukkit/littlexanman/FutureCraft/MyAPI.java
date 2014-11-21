@@ -1,6 +1,8 @@
 package Bukkit.littlexanman.FutureCraft;
 
 
+import java.util.logging.Logger;
+
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.EntityType;
@@ -12,7 +14,7 @@ import org.bukkit.entity.Wolf;
 public class MyAPI {
 	
 	
-	
+	public final Logger logger = Logger.getLogger("Minecraft");
 		//Coin System
 	public static void giveCoins(Player p, int i){
 		Core.config.set(p.getName() + ".Coins", Core.config.getInt(p.getName() + ".Coins", 0) + i);
@@ -42,6 +44,7 @@ public class MyAPI {
         wolf.setCustomNameVisible(true);
         wolf.setTamed(true);
         wolf.setOwner(p);
+        System.out.print("A player has bought a dog called: " + p.getName() + "'s Wolf");
         
 	}
 
@@ -52,6 +55,7 @@ public class MyAPI {
         wolf.setCustomNameVisible(true);
         wolf.setTamed(true);
         wolf.setOwner(p);
+        
         
 	}
 	public static void spawnCat(Player p) {
