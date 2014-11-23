@@ -1,6 +1,8 @@
 package me.littlexanman.TheInfected;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.entity.Player;
 
@@ -19,7 +21,13 @@ public class ArenaManager {
 	private ArrayList<Arena> arenas = new ArrayList<Arena>();
 	
 	public void setup() {
-		// Load config.
+		for (int i : SettingsManager.getInstance().<List<Integer>>get("ids")){
+			arenas.add(new Arena(i));
+		}
+	}
+	
+	public ArrayList<Arena> getArenas(){
+		return arenas;
 	}
 
 	public Arena getArena(int id) {
@@ -35,4 +43,6 @@ public class ArenaManager {
 		}
 		return null;
 	}
+
+	
 }

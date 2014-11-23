@@ -2,5 +2,8 @@ name: FutureCraft
 author: littlexanman
 main: Bukkit.littlexanman.FutureCraft.Core
 version: 1.0
-description: FutureCraft Plugin!
+description: FutureCraft Plugin! This is a private plugin!
 commands:
+	ti:
+	  ussage: /<command> <args> [optional args]
+	  description: The Infetced command

@@ -1,8 +1,10 @@
 package me.littlexanman.TheInfected;
 
-
-
-
+import me.littlexanman.TheInfected.listeners.ArmorRemove;
+import me.littlexanman.TheInfected.listeners.BlockBreak;
+import me.littlexanman.TheInfected.listeners.LobbySigns;
+import me.littlexanman.TheInfected.listeners.PlayerLeave;
+import me.littlexanman.TheInfected.listeners.PlayerLoseHunger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,13 +24,19 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
-
-
 public class Core extends JavaPlugin implements Listener{
 	
 	public void onEnable() {
 		getLogger().info(ChatColor.RED + "The Infected" + ChatColor.GOLD + " has been enabled!");
 		ArenaManager.getInstance().setup();
+		CommandManager cm = new CommandManager();
+		cm.setup();
+		getCommand("ti").setExecutor(cm);
+		Bukkit.getServer().getPluginManager().registerEvents(new ArmorRemove(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new BlockBreak(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new LobbySigns(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerLeave(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerLoseHunger(), this);
 	}
 
 	public void onDisable() {

@@ -2,6 +2,16 @@ package Bukkit.littlexanman.FutureCraft;
 
 import java.util.logging.Logger;
 
+import me.littlexanman.TheInfected.Arena;
+import me.littlexanman.TheInfected.ArenaManager;
+import me.littlexanman.TheInfected.CommandManager;
+import me.littlexanman.TheInfected.SettingsManager;
+import me.littlexanman.TheInfected.listeners.ArmorRemove;
+import me.littlexanman.TheInfected.listeners.BlockBreak;
+import me.littlexanman.TheInfected.listeners.LobbySigns;
+import me.littlexanman.TheInfected.listeners.PlayerLeave;
+import me.littlexanman.TheInfected.listeners.PlayerLoseHunger;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -61,8 +71,20 @@ public class Core extends JavaPlugin implements Listener{
 		config = getConfig();
 		plugin = this;
 		me = this;
-		arenaManager = new ArenaManager();
+		getLogger().info(ChatColor.RED + "The Infected" + ChatColor.GOLD + " has been enabled!");
+		ArenaManager.getInstance().setup();
+		CommandManager cm = new CommandManager();
+		cm.setup();
+		getCommand("ti").setExecutor(cm);
+		Bukkit.getServer().getPluginManager().registerEvents(new ArmorRemove(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new BlockBreak(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new LobbySigns(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerLeave(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerLoseHunger(), this);
+		SettingsManager.getInstance().setup(this);
 		
+		ArenaManager.getInstance().setup();
+
 	}
 	public static void saveFile(){
 		plugin.saveConfig();
@@ -71,6 +93,11 @@ public class Core extends JavaPlugin implements Listener{
 	public void onDisable(){
 		this.logger.info("FutureCraft plugins are un-loaded!");
 		this.saveDefaultConfig();
+		getLogger().info(ChatColor.RED + "The Infected" + ChatColor.GOLD + " has been Disabled!");
+		for (Arena a : ArenaManager.getInstance().getArenas()) {
+			a.stop(null);
+		}
+
 	}
 	
 	boolean  Rdone = true;
