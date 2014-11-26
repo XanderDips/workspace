@@ -36,6 +36,13 @@ public class Join extends SubCommand{
 		if(a.isStarted()){
 			MessageManager.getInstance().severe(p, "Arena " + id +" has already started!");
 		}
+		
+		
+		if(!(p.hasPermission("FutureCraft.Join"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
 		a.addPlayer(p);
 	}
 

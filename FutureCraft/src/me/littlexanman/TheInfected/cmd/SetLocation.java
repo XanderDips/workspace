@@ -39,6 +39,11 @@ public class SetLocation extends SubCommand{
 			return;
 		}
 		
+		if(!(p.hasPermission("FutureCraft.SetLocation"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
 		ConfigurationSection s = SettingsManager.getInstance().createConfigurationSection(a.getID() + "." + team.toString().toLowerCase() + "spawn");
 		
 		s.set("world", p.getName());

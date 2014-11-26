@@ -10,8 +10,14 @@ public class Create extends SubCommand{
 
 	@Override
 	public void onCommand(Player p, String[] args) {		
+		
 		if(args.length == 0) {
 			MessageManager.getInstance().severe(p, "You must specify an Arena ID!");
+			return;
+		}
+		
+		if(!(p.hasPermission("FutureCraft.Create"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
 			return;
 		}
 		

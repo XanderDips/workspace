@@ -45,7 +45,7 @@ public class CommandManager implements CommandExecutor{
 		if(cmd.getName().equalsIgnoreCase("ti")){
 			if(args.length == 0){
 				for(SubCommand c : commands) {
-					MessageManager.getInstance().info(p, "/infected " + c.name() + " (" + aliases(c) + ")" + " - " + c.info());
+					MessageManager.getInstance().info(p, "/ti " + c.name() + " (" + aliases(c) + ")" + " - " + c.info());
 				}
 				return true;
 			}
@@ -53,7 +53,7 @@ public class CommandManager implements CommandExecutor{
 			SubCommand target = get(args[0]); 
 			
 			if(target == null) {
-				MessageManager.getInstance().severe(p, "/infected " + args[0] + " is not a valid subcommand!");
+				MessageManager.getInstance().severe(p, "/ti " + args[0] + " is not a valid subcommand!");
 				return true;
 			}
 			
@@ -65,7 +65,7 @@ public class CommandManager implements CommandExecutor{
 			try {
 				target.onCommand(p, args);
 			}catch(Exception e){
-				MessageManager.getInstance().severe(p, "An error has occured" + e.getCause());
+				MessageManager.getInstance().severe(p, "An error has occured: " + e.getCause() + "!");
 				e.printStackTrace();
 				return true;
 			}

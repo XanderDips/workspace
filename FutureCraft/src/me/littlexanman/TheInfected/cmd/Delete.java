@@ -11,6 +11,8 @@ public class Delete extends SubCommand{
 
 	@Override
 	public void onCommand(Player p, String[] args) {
+		
+				
 		if(args.length == 0) {
 			MessageManager.getInstance().severe(p, "You must specify an Arena number!");
 		}
@@ -31,9 +33,15 @@ public class Delete extends SubCommand{
 		
 		if(a.isStarted()){
 			MessageManager.getInstance().severe(p, "Arena " + id +" is ingame!");
+			return;
 		}
+		if(!(p.hasPermission("FutureCraft.Delete"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
+		
 		SettingsManager.getInstance().set(id + "", null);
-		//TODO: Stop all games and broadcast!
 		ArenaManager.getInstance().setup();
 	}
 

@@ -1,9 +1,33 @@
 name: FutureCraft
+version: 2.0
+description: A private plugin that runs the Future Craft Server!
 author: littlexanman
 main: Bukkit.littlexanman.FutureCraft.Core
-version: 1.0
-description: FutureCraft Plugin! This is a private plugin!
 commands:
 	ti:
-	  ussage: /<command> <args> [optional args]
-	  description: The Infetced command
+	  description: The Infected command!
+	  usage: Syntax error! The correct way to perform this command is /<command> <args> [optional args]
+permissions:
+	FutureCraft.*
+		description: Gives you all the FutureCraft Commands!
+	FutureCraft.Create
+		description: Allows you to Creates an Arena!
+		default: op
+	FutureCraft.Delete
+		description: Allows you to Deletes an Arena!
+		default: op
+	FutureCraft.ForceStart
+		description: Allows you to ForceStart an Arena!
+		default: op
+	FutureCraft.ForceStop
+		description: Allows you to ForceStop an Arena!
+		default: op
+	FutureCraft.Join
+		description: Allows you to Join an Arena!
+		defult: true
+	FutureCraft.Leave
+		description: Allows you to Leave an Arena!
+		defult: true
+	FutureCraft.SetLocation
+		description: Allows you to SetSpawns an Arena!
+		default: op

@@ -23,6 +23,11 @@ public class Leave extends SubCommand{
 			return;
 		}
 		
+		if(!(p.hasPermission("FutureCraft.Leave"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
 		a.removePlayerL(p);
 		
 	}

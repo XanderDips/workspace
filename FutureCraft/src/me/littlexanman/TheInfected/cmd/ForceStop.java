@@ -37,7 +37,13 @@ public class ForceStop extends SubCommand{
 		if(!a.isStarted()){
 			MessageManager.getInstance().severe(p, "Arena " + id +" has not yet started!");
 		}
-
+		
+		
+		if(!(p.hasPermission("FutureCraft.ForceStop"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
 		a.stop(null);
 		MessageManager.getInstance().good(p, "Force stoped Arena " + a.getID() + "!");
 		

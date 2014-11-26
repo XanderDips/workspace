@@ -37,7 +37,12 @@ public class ForceStart extends SubCommand{
 		if(a.isStarted()){
 			MessageManager.getInstance().severe(p, "Arena " + id +" has already started!");
 		}
-
+		
+		if(!(p.hasPermission("FutureCraft.ForceStart"))) {
+			MessageManager.getInstance().severe(p, "You do not have permission to perform this command!");
+			return;
+		}
+		
 		a.start();
 		MessageManager.getInstance().good(p, "Force started Arena " + a.getID() + "!");
 		
